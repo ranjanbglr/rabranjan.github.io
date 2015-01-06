@@ -1,0 +1,23 @@
+#divCenter{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    #height: 100px;
+	text-align: center;
+}
+.cssBold{
+	font-weight: bold;
+}
+.cssItalic {
+	margin-top: 50px;
+	font: italic 12px/20px Georgia, serif;
+}
+.centerblock {
+	#display: block;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: center;
+}
