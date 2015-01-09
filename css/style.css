@@ -25,9 +25,9 @@ img {
 	-webkit-border-radius: 110px;
 	-moz-border-radius: 110px;
 	background: url(../images/disp_pic.jpg) no-repeat;
-	box-shadow: 0 0 8px rgba(0, 0, 0, .4);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	#box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+	#-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	#-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	float: left;
 	margin-top: 60px;
 	background-position: 50% 50%;
