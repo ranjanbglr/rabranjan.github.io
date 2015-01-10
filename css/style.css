@@ -3,7 +3,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	#font-size: 17px;
 }
-header#headerWarp {
+#headerWarp {
 	position: absolute;
 	height: 40px;
 	width: 100%;
@@ -16,14 +16,35 @@ img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
-	max-width:100%;
+	max-width:80%;
 }
 .circular {
-	width: 220px;
-	height: 220px;	
-	border-radius: 110px;
-	-webkit-border-radius: 110px;
-	-moz-border-radius: 110px;
+	#display: block;
+    margin: 0 auto;
+    width: 20%;
+    height: auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+	background: url(../images/disp_pic.jpg) no-repeat;
+    margin-top: 60px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	float: left;
+}
+/*
+.circular {
+	#width: 220px;
+	#height: 220px;
+	#border-radius: 110px;
+	#-webkit-border-radius: 110px;
+	#-moz-border-radius: 110px;
+	width: 20%;
+	height: 10%;
+	border-radius: 10%;
+	-webkit-border-radius: 10%;
+	-moz-border-radius: 10%;
 	background: url(../images/disp_pic.jpg) no-repeat;
 	#box-shadow: 0 0 8px rgba(0, 0, 0, .4);
 	#-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
@@ -34,6 +55,7 @@ img {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+*/
 .circular img {
 	opacity: 0;
 	filter: alpha(opacity=0);
@@ -41,7 +63,9 @@ img {
 .menuWarp {
 	text-align: right;
 	margin: 0 auto;
-	width: 1040px;
+	#width: 1040px;
+	width: 100%;
+	margin-right:10%;
 }
 .menuWarp ul {
 	margin: 7px 0px;
@@ -49,6 +73,7 @@ img {
 .menuWarp ul li {
 	display: inline;
 	margin-left: 40px;
+	margin-right: 20px;
 }
 .menuWarp ul li a {
 	text-decoration: none;
@@ -59,14 +84,16 @@ img {
 }
 .clear {
 	clear: both;
-	margin-bottom:60px;
+	margin-bottom:4%;
 }
 .container {
 	width: 100%;
+	height: auto;
 }
 .containerWarp {
 	margin: 0 auto;
-	width: 1000px;
+	#width: 1000px;
+	width: 80%;
 	border: 0px solid #ccc;
 	background: #fff;
 	padding: 0px 20px;
@@ -74,14 +101,15 @@ img {
 }
 .imgageWarp {
 	float: left;
-	height: 220px;
-	width: 200px;
+	#height: 220px;
+	#width: 200px;
 	border: 0px solid #ccc;
 	margin-top: 60px;
 }
 .contentWarp {
 	float: right;
-	width: 765px;
+	#width: 765px;
+	width: 75%;
 	margin-top: 60px;
 	border: 0px solid #ccc;
 	font-size: 16px;
@@ -97,35 +125,51 @@ h2 {
 	font-size: 28px;
 	color: #555;
 }
+h4 {
+	margin: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 15px;
+	color: #555;
+}
 .subContent {
 	margin: 0 auto;
-	width: 1000px;
+	#width: 1000px;
+	width: 80%;	
 	border: 0px solid #ccc;
 	background: #fff;
 	padding: 0px 20px;
 }
 .left {
-	width: 29.3%;
-	margin: 10px 20px 20px 0px;
+	width: 27%;
+	#margin: 10px 0px 80px 0px;
 }
 .center {
-	width: 30%;
-	margin: 10px 20px 20px 0px;
+	width: 27%;
+	#margin: 10px 0px 80px 0px;	
 }
 .right {
-	width: 30%;
-	margin: 10px 0px 20px 0px;
+	width: 27%;
+	#margin: 10px 0px 80px 0px;
  }
 .left, .center, .right {
-	background: #F8F8F8;
-	border-radius: 4px;
+	#background: #F8F8F8;
+	background: rgba(229, 227, 231, 1);
+	border-radius: 10px;
 	color: #777;
-	font-size: 14px;
+	#font-size: 14px;
+	font-size: 100%;
 	line-height: 20px;
 	padding: 10px;
 	text-align: justify;
 	border: 1px solid #f2f2f2;
 	float: left;
+	margin-top: 0%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: auto;
 }
 h3 {
 	text-align: center;
@@ -138,15 +182,18 @@ h3 {
 	width: 100%;
 	left: 0;
 	right: 0;
-	bottom: 20px;
+	bottom: 0px;
 }
 .footer {
 	margin: 0 auto;
-	height: 40px;
+	height: 0px;
 	border-top: 1px solid #ccc;
 	color: #555;
 	padding: 10px 0px;
 	font-size: 12px;
 }
-
-
+.technologyImages  img{
+	width: 20%;
+	margin-bottom: .3cm;
+	margin-right: .2cm;
+}
