@@ -159,6 +159,7 @@ h4 {
 	background: #fff;
 	padding: 0px 20px;
 	text-align: center;
+	height: 320px;
 }
 .left {
 	width: 28%;
@@ -184,13 +185,14 @@ h4 {
 .left, .center, .right {
 	background: rgba(229, 227, 231, 1);
 	border-radius: 10px;
-	color: #777;
+	#color: #777;
 	font-size: 100%;
 	line-height: 20px;
 	text-align: justify;
 	border: 1px solid #f2f2f2;
 	margin-top: 0%;
 	margin-bottom: auto;
+	height: 310px;
 }
 h3 {
 	text-align: center;
