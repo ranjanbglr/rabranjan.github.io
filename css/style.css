@@ -2,6 +2,7 @@ body {
 	background: #F4F4F4 url('../images/bg_image.png');
 	font-family: 'Open Sans', sans-serif;
 	#font-size: 17px;
+	min-height: 100%;
 }
 #headerWarp {
 	position: absolute;
