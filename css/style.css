@@ -97,7 +97,7 @@ img {
 }
 .container {
 	width: 100%;
-	height: auto;
+	height: 100vh;
 }
 .containerWarp {
 	margin: 0 auto;
