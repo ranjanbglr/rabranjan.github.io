@@ -6,7 +6,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	#font-size: 17px;
 	min-height: 100%;
-	#margin: 0;
+	top:0; 
+	bottom:0; 
+	right:0; 
+	left:0;
 }
 #headerWarp {
 	position: absolute;
@@ -24,14 +27,14 @@ img {
 	max-width:80%;
 }
 .circular {
-	#display: block;
+    #display: block;
     margin: 0 auto;
     width: 20%;
     height: auto;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-	background: url(../images/disp_pic.jpg) no-repeat;
+    background: url(../images/disp_pic.jpg) no-repeat;
     margin-top: 60px;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
