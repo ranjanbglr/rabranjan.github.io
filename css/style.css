@@ -3,6 +3,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	#font-size: 17px;
 	min-height: 100%;
+	margin: 0;
 }
 #headerWarp {
 	position: absolute;
