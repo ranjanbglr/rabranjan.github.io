@@ -1,21 +1,13 @@
 <?php
 	class Connection {
 		protected $db;
-		public static $excelFilePath1 = "/mnt/urtracker_reports_output/";
-		public static $excelFileName1 = "urtrackerPrdetails.csv";
-		
-		public static $urgencyExcelFilePath = "/mnt/urtracker_reports_output/";
-		public static $urgencyExcelFileName = "urtrackerPrdetailsUrgencyWise.csv";
-		
 		function Connection() {
 			$conn = NULL;
-			try {
-				//$conn = new PDO("mysql:host=$locahost;dbname=urtracker", $username, $password);
-				$conn = new PDO("mysql:host=$localhost;dbname=urtracker_age_reports", 'root', 'tpvision123');
+			try {				
+				$conn = new PDO("mysql:host=$localhost;dbname=dbnm", 'rot', 'pw');
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			} catch(PDOException $e) {
-				echo "<b>Urtracker Admin:</b> </br></br></t>Hey you do not have access to this server. Please contact the Administrator.";
-				// echo 'ERROR: ' . $e->getMessage();
+			} catch(PDOException $e) {				
+				echo 'ERROR: ' . $e->getMessage();
 			}
 			$this->db = $conn;
 		}
@@ -33,9 +25,9 @@
 	
 	/*	Use this to retrive data	*/
 	$result = array();
-	$sqlStatement = "SELECT * FROM `prdetails` WHERE `pr_no` = :prNumber";
+	$sqlStatement = "SELECT * FROM `students` WHERE `id` = :Id";
 	$queryValues = array(
-		'prNumber' => $prNum
+		'Id' => $idnumber
 	);
 	$con = new Connection();
 	$dbConn = $con->getConnection();
