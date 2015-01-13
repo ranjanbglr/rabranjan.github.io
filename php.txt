@@ -1,0 +1,48 @@
+<?php
+	class Connection {
+		protected $db;
+		public static $excelFilePath1 = "/mnt/urtracker_reports_output/";
+		public static $excelFileName1 = "urtrackerPrdetails.csv";
+		
+		public static $urgencyExcelFilePath = "/mnt/urtracker_reports_output/";
+		public static $urgencyExcelFileName = "urtrackerPrdetailsUrgencyWise.csv";
+		
+		function Connection() {
+			$conn = NULL;
+			try {
+				//$conn = new PDO("mysql:host=$locahost;dbname=urtracker", $username, $password);
+				$conn = new PDO("mysql:host=$localhost;dbname=urtracker_age_reports", 'root', 'tpvision123');
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			} catch(PDOException $e) {
+				echo "<b>Urtracker Admin:</b> </br></br></t>Hey you do not have access to this server. Please contact the Administrator.";
+				// echo 'ERROR: ' . $e->getMessage();
+			}
+			$this->db = $conn;
+		}
+		public function getConnection(){
+			return $this->db;
+		}
+	}
+	
+	/*	use this function for binding parameter */
+	function PDOBindArray(&$poStatement, &$paArray) {
+		foreach ($paArray as $k=>$v){
+			@$poStatement->bindValue(':'.$k,$v);
+		}
+	}
+	
+	/*	Use this to retrive data	*/
+	$result = array();
+	$sqlStatement = "SELECT * FROM `prdetails` WHERE `pr_no` = :prNumber";
+	$queryValues = array(
+		'prNumber' => $prNum
+	);
+	$con = new Connection();
+	$dbConn = $con->getConnection();
+	$preparedQuery = $dbConn->prepare($sqlStatement);
+	$this->PDOBindArray($preparedQuery,$queryValues);
+	$preparedQuery->execute($queryValues);
+	if($preparedQuery->rowCount()) {
+		$result = $preparedQuery->fetchAll(PDO::FETCH_ASSOC);
+		//$result = $preparedQuery->fetch(PDO::FETCH_ASSOC); only one record
+	}
