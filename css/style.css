@@ -195,7 +195,7 @@ article img {
 }
 #mainSectionContact2{
 	min-width:321px;
-	max-width:1038px;
+	#max-width:1038px;
 	#margin-left: 8%;
 	margin-top: 20px;
 	position:relative; 
@@ -204,6 +204,18 @@ article img {
 	left:0; 
 	right:0;
 	margin:auto;
+}
+#mainSectionContact2 img{
+	margin: 0 auto;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	float: right;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .divContactImage {
 	width: 30%;
@@ -233,4 +245,20 @@ article img {
 	vertical-align: top;
     display: block;
     text-align:left;
+}
+footer *{
+	display:inline;
+	vertical-align: middle;
+}
+.footerCls  img{
+	margin: 0 auto;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	float: right;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
