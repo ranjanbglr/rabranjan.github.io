@@ -1,8 +1,9 @@
-body {
+html, body {
 	font-family: Bookman Old Style;
 	font-size: 0.9em;
 	background: #F4F4F4 url('../images/bg_image.png');	
 	margin: 0 auto;
+	height: 100%;
 }
 #headerSection {
 	border:0px solid grey;
@@ -21,7 +22,7 @@ body {
 	#background-position: left top;
 	#max-height: 300px;
 	#max-width: 1265px;
-	min-height: 100%;
+	min-height: 8%;
 	background-position: 50%;
 }
 #headerSection span, nav{
@@ -84,6 +85,7 @@ section, article {
 	left:0; 
 	right:0;
 	margin:auto;
+	min-height:85%;
 }
 #subSectionTop {
 	overflow:hidden;
@@ -192,6 +194,7 @@ article img {
 	left:0; 
 	right:0;
 	margin:auto;
+	min-height:85%;
 }
 #mainSectionContact2{
 	min-width:321px;
