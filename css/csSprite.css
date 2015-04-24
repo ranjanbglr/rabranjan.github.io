@@ -6,7 +6,7 @@
 .cssencha, .cssencha1, .csskype, .cssqlite, .cssqlserver,
 .csswing, .cstwitter, .csubuntu, .cswamp, .cswinscp,
 .csxampp, .cslinkedin
-{ display: inline-block; background: url('../images/bg_image.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+{ display: inline-block; background: url('../images/csSprite.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
  
 .csajax { background-position: -10px -0px; width: 512px; height: 332px; }
 .csaptana { background-position: -10px -342px; width: 512px; height: 512px; }
