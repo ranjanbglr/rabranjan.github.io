@@ -7,7 +7,7 @@ Ext.onReady(function(){
 				autoLoad: true,
 		proxy: {
 			type: 'ajax',
-			url: '../devr/ext-js/simple-grid.txt',
+			url: 'simple-grid.txt',
 			reader: {
 				type: 'json',
 				root: ''
