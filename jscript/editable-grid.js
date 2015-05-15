@@ -39,7 +39,11 @@ Ext.onReady(function(){
 	
 	var grid = Ext.create('Ext.grid.Panel',{
 		title: 'Editable grid',
-		columns: [{dataIndex:'name',header:'Name'},{dataIndex:'address',header:'Address'}],
+		columns: [{
+				dataIndex:'name',header:'Name',editor:{xtype:'textfield'}
+			},{
+				dataIndex:'address',header:'Address',editor:{xtype:'textfield'}
+			}],
 		store: gStore,
 		renderTo: Ext.getBody(),
 		width: 250,
