@@ -67,8 +67,7 @@ Ext.onReady(function(){
             bodyStyle: 'background: #DEEBF7;',
             id: 'center-panel',
             name: 'center-panel',
-            items: [
-				basicGrid,
+            items: [				
 				editableGrid				
 			]
 		}]
