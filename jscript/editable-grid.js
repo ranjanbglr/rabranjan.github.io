@@ -45,11 +45,11 @@ Ext.onReady(function(){
 				dataIndex:'address',header:'Address',editor:{xtype:'textfield'}
 			}],
 		store: gStore,
-		//renderTo: Ext.getBody(),
+		renderTo: Ext.getBody(),
 		width: 250,
 		plugins: [cellEditing]
 	});
-	
+	/*
     Ext.create('Ext.Viewport', {
         layout: {
             type: 'border',
@@ -72,4 +72,5 @@ Ext.onReady(function(){
 			]
 		}]
     });
+	*/
 });
