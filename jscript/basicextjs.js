@@ -37,9 +37,12 @@ Ext.onReady(function(){
 		columns: [{dataIndex:'name',header:'Name'},{dataIndex:'address',header:'Address'}],
 		store: grdStore,
 		width: 300,
-		renderTo: Ext.getBody(),
-		listeners: function(grid, rowIndex, e){
-			var currentRec = grid.getStore().getAt(e.rowIndex);
+		renderTo: Ext.getBody(),		
+		listeners:{
+			itemclick:function(grid,rowIndex,e){
+				var rec = grid.getStore().getAt(e.rowIndex);
+				Ext.Msg.alert('Msg','You clicked on' + rec.data.name);
+			}
 		}
 	});
 });

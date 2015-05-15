@@ -73,4 +73,54 @@ Ext.onReady(function(){
 		}]
     });
 	*/
+	
+	var pieModel = [
+        {
+            name: 'data1',
+            data: 10
+        },
+        {
+            name: 'data2',
+            data: 10
+        },
+        {
+            name: 'data3',
+            data: 10
+        },
+        {
+            name: 'data4',
+            data: 10
+        },
+        {
+            name: 'data5',
+            data: 10
+        }
+    ];
+    
+    var pieStore = Ext.create('Ext.data.JsonStore', {
+        fields: ['name', 'data'],
+        data: pieModel
+    });
+    
+    var pieChart = Ext.create('Ext.chart.Chart', {
+        width: 100,
+        height: 100,
+        animate: false,
+        store: pieStore,
+        shadow: false,
+        insetPadding: 0,
+        theme: 'Base:gradients',
+        renderTo: Ext.getBody(),
+        series: [{
+            type: 'pie',
+            field: 'data',
+            showInLegend: false,
+            label: {
+                field: 'name',
+                display: 'rotate',
+                contrast: true,
+                font: '9px Arial'
+            }
+        }]
+    });
 });
