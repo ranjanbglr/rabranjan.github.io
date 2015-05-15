@@ -37,6 +37,9 @@ Ext.onReady(function(){
 		columns: [{dataIndex:'name',header:'Name'},{dataIndex:'address',header:'Address'}],
 		store: grdStore,
 		width: 300,
-		renderTo: Ext.getBody()
+		renderTo: Ext.getBody(),
+		listeners: function(grid, rowIndex, e){
+			var currentRec = grid.getStore().getAt(e.rowIndex);
+		}
 	});
 });
