@@ -1,7 +1,7 @@
 Ext.onReady(function(){
 	
 	Ext.create('Ext.Button', {
-		text: 'Tooltip button',
+		text: 'Ajax Call button',
 		renderTo: Ext.getBody(),
 		// handler: function(){
 			// Ext.Msg.alert('You clicked Me')
@@ -33,7 +33,7 @@ Ext.onReady(function(){
 			}
 		}
 	});
-	var cellEditing = Ext.create('Ext.grid.plugin.CellEditing'{
+	var cellEditing = Ext.create('Ext.grid.plugin.CellEditing',{
 		clicksToEdit: 1
 	});
 	
