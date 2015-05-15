@@ -37,7 +37,7 @@ Ext.onReady(function(){
 		clicksToEdit: 1
 	});
 	
-	var grid = Ext.create('Ext.grid.Panel',{
+	var editableGrid = Ext.create('Ext.grid.Panel',{
 		title: 'Editable grid',
 		columns: [{
 				dataIndex:'name',header:'Name',editor:{xtype:'textfield'}
@@ -45,8 +45,32 @@ Ext.onReady(function(){
 				dataIndex:'address',header:'Address',editor:{xtype:'textfield'}
 			}],
 		store: gStore,
-		renderTo: Ext.getBody(),
+		//renderTo: Ext.getBody(),
 		width: 250,
 		plugins: [cellEditing]
 	});
+	
+    Ext.create('Ext.Viewport', {
+        layout: {
+            type: 'border',
+            padding: 5
+        },
+        defaults: {
+            split: true
+        },
+        items: [{
+            region: 'center',
+            scrollable: true,
+            autoScroll: true,
+            height: '100%',
+            width: '100%',
+            bodyStyle: 'background: #DEEBF7;',
+            id: 'center-panel',
+            name: 'center-panel',
+            items: [
+				basicGrid,
+				editableGrid				
+			]
+		}]
+    });
 });

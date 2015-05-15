@@ -32,11 +32,11 @@ Ext.onReady(function(){
 			}
 		}
 	});
-	Ext.create('Ext.grid.Panel',{
+	var basicGrid = Ext.create('Ext.grid.Panel',{
 		title: 'sample grid',
 		columns: [{dataIndex:'name',header:'Name'},{dataIndex:'address',header:'Address'}],
 		store: grdStore,
 		width: 300,
-		renderTo: Ext.getBody(),
+		//renderTo: Ext.getBody(),
 	})
 });
