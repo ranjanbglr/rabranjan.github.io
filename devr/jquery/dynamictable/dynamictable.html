@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+	
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var i=1;
+		deletedIds = new Array();
+		var rowCount = $('#tab_logic >tbody >tr').length;
+		if(rowCount===1) {
+			$("#tab_logic").hide();
+		} else {
+			$("#tab_logic").show();
+		}
+		$("#showCategory").change(function(){
+			if(this.checked) {
+				$("#categoryItem").show();
+			} else {
+				$("#categoryItem").hide();
+			}
+		});
+		$.fn.deleteItem = function(id) {
+		  /* return this.each(function(){
+			 alert(msg);
+		   }) */
+		   <!-- alert("delte tr " + id); -->
+		   var j = i-1;
+		   var category = $("#category"+id).val();
+		   var email = $("#email"+id).val();
+		   <!-- alert(" category = " + category + " email = " + email); -->
+			$('table#tab_logic tr#addr' + id).remove();
+			var rowCount = $('#tab_logic >tbody >tr').length;
+			if(rowCount===1) {
+				$("#tab_logic").hide();
+			}
+			deletedIds.push(id);
+			return false;			
+		 };
+			
+		$("#btnAdd").click(function(){
+			// get div count and add the content
+			var idPlus = i + 1; 
+			var category = $("#category0").val();
+			var email = $("#email0").val();
+			
+			$('#addr'+i).html(
+				"<td>"+ (i) +"</td><td><input type=\"text\" id=\"category"+i+"\" name=\"category"+i+"\" value=\""+category+"\"/></td><td style='width: 45%;'><input type=\"text\" name=\"email"+i+"\" id=\"email"+i+"\" value=\""+email+"\"/></td><td><input type=\"button\" id=\"delete"+i+"\" onclick=\"$(this).deleteItem("+i+");\" value=\"delete\" /></td>");
+			$('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+			i++;
+			
+			var rowCount = $('#tab_logic >tbody >tr').length;
+			if(rowCount===1) {
+				$("#tab_logic").hide();
+			} else {
+				$("#tab_logic").show();
+			}
+		});
+		$("#categoryItem").hide();
+		$("#getValue").click(function(){
+			alert("Total i value = " +(i-1) +" deleted Ids = " + deletedIds);
+		});
+	});
+	
+	
+	</script>
+</head><!--/head-->
+
+<body id="home" class="homepage">
+	
+	<div class="container" style="min-height: 450px;">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				
+				<table class="table table-bordered table-hover" id="tab_logic">
+					<thead>
+						<tr >
+							<th class="text-center">
+								#
+							</th>
+							<th class="text-center">
+								Category
+							</th>
+							<th class="text-center">
+								Email Id
+							</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr id='addr1'>				
+						</tr>
+					</tbody>
+				</table>
+				<div id="divCategory">
+					<label><input type="checkbox" id="showCategory" name="showCategory" value="showCategory">Show comment category</label><br>
+					<div id="categoryItem">
+					<span>Category: <input type="text" name="category0" id="category0"></span><br><br>
+						<span>Email Id: <input type="text" name="email0" id="email0"></span>
+					<input type="button" id="btnAdd" value="Add" /> 
+					</div>
+				</div>
+				<input type="button" id="getValue" name="getValue" value="Get" />
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		
+	</div>
+	</form>
+</body>
+</html>
