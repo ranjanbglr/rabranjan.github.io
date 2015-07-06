@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
 	
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -66,7 +65,25 @@
 		});
 		$("#categoryItem").hide();
 		$("#getValue").click(function(){
-			alert("Total i value = " +(i-1) +" deleted Ids = " + deletedIds);
+			
+			var totVal = i-1;
+			var tableValue = new Array();
+			for(x=1; x<=totVal; x++) {
+				isDeleted = deletedIds.indexOf(x);				
+				if(isDeleted>=0) {
+					/*	do nothing */
+				} else {
+					var rowValue = new Object();
+					rowValue.category = $("#category"+x).val();
+					rowValue.email = $("#email"+x).val();					
+					tableValue.push(rowValue);
+				}
+			}
+			/*	convert the value to json string */
+				jsonValue = JSON.stringify(tableValue);
+			/*	End convert the value to json string */
+			
+			alert("Row count = " +(totVal) +" Table Values = " + jsonValue);
 		});
 	});
 	
