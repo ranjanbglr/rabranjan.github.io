@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Attendance week time calculator</title>
+		<meta name="author" content="Ravi Ranjan Singh">
+		<script type="text/javascript" src="../jquery-1.10.2.js"></script>
+		<script>
+			$().ready(function(){
+				/*	Set value some	*/
+				var totalWorkingDays = 5;
+				var totalWorkingHourInDay = 8;
+				var totalWeekWorkingHour = totalWorkingDays * totalWorkingHourInDay;
+				var hours_needs_to_work = totalWeekWorkingHour;
+				$("#lblWorkingDaysInWeek").text(totalWorkingDays);
+				$("#lblWorkingHoursInDay").text(totalWorkingHourInDay);
+				$("#lblTotalWorkingHoursInWeek").text(hours_needs_to_work);
+				
+				$.fn.CalculateHours = function(paramsArray) {
+					var TimesArray = paramsArray;				  
+					seconds = 0;
+					TimesArray.forEach(function(time) {						
+						var tt = time.split(":");
+						
+						seconds += (tt[0]*3600);
+						seconds += (tt[1]*60);
+					});
+					tmpSec = seconds;
+					
+					hours = Math.floor(tmpSec/3600);
+					hours = hours > 9 ? hours : ("0" + hours);
+					
+					tmpSec = tmpSec - (hours*3600);
+					minutes  = Math.floor(tmpSec/60);
+					minutes = minutes > 9 ? minutes : ("0" + minutes);
+					
+					tmpSec = tmpSec - (minutes*60);
+					tmpSec = tmpSec > 9 ? tmpSec : ("0" + tmpSec);
+					
+					$("#lblTotalHoursWorked").text( hours + ":" + minutes +":"+ tmpSec);
+					
+					tmpSec = (totalWeekWorkingHour * 3600) - seconds;
+					
+					remainingHrs = Math.floor(tmpSec/3600);
+					remainingHrs = remainingHrs > 9 ? remainingHrs : ("0" + remainingHrs);
+					tmpSec = tmpSec - (remainingHrs*3600);
+					remainingMins = Math.floor(tmpSec/60);
+					remainingMins = remainingMins > 9 ? remainingMins : ("0" + remainingMins);
+					tmpSec = tmpSec - (remainingMins*60);
+					tmpSec = tmpSec > 9 ? tmpSec : ("0" + tmpSec);
+					
+					$("#lblTotalRemainingHours").text(remainingHrs +":"+ remainingMins +":"+ tmpSec);
+					$("#Result").show();
+					return false;
+				};
+				$('#btnCalculateHrs').on("click",function(){
+					var inputValue = $("#txtTotalHoursWorked").val();
+					if(inputValue != null && inputValue!= "") {						
+						var paramsArray = inputValue.split(",");
+						$(this).CalculateHours(paramsArray);
+					} else {
+						alert("Enter values");
+					}
+				});
+				$("#Result").hide();
+			});			
+			//document.getElementById('lblWorkingDaysInWeek').value = 5;
+		</script>
+	</head>
+	<body>
+		<p>
+			Working days in a week => <label id="lblWorkingDaysInWeek" value=""></label>
+		</p>
+		<p>
+			Days to work in a week => <label id="lblWorkingHoursInDay" value=""></label>
+		</p>
+		<p>
+			Total working hours a week => <label id="lblTotalWorkingHoursInWeek" value=""></label>
+		</p>
+		<p>
+			<input id="txtTotalHoursWorked" name="txtTotalHoursWorked" type="text" value="" placeholder="enter working hrs in format: 00:00,00:00,00:00,00:00,00:00" style="width:30%;height:30px"/>
+		</p>
+		<p>
+			<input type="button" id="btnCalculateHrs" name="btnCalculateHrs" value="Calculate Hrs" />
+		</p>
+		<div id="Result">
+			<p>
+				Total hours worked this week => <label id="lblTotalHoursWorked" value=""></label>
+			</p>
+			<p>
+				Remaining hours this week => <label id="lblTotalRemainingHours" value=""></label>
+			</p>
+		</div>
+	</body>
+</html>
