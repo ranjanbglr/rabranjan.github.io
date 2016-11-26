@@ -6,6 +6,12 @@
 	margin: auto;
 	background-color: beige;
 }
+.header{
+	font-weight: bold;
+	margin-bottom: 10%;
+	margin: auto;
+	text-align: center;
+}
 .barStyle{
 	margin: 5px;
 	text-align: center;
