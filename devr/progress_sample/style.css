@@ -1,0 +1,22 @@
+.mainContainer{
+	text-align: center;
+	padding: 20px;
+	width: 50%;
+	border: 1px solid;
+	margin: auto;
+	background-color: beige;
+}
+.barStyle{
+	margin: 5px;
+	text-align: center;
+	border: none;
+}
+
+.btnStyle{
+	border-radius: 15%;
+}
+
+.btnContainer > span{
+	margin-top: 5px;
+	margin-left: 5px;
+}
