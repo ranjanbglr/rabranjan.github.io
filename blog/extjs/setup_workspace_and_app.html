@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<head>
+		<title>ExtJS Beginners: Setup ExtJS workspace</title>
+	</head>
+	<body>
+		<p><b>ExtJS Beginners: Easy Steps to setup ExtJS workspace with multiple application</b></p>
+		<p>Prerequisites:
+			<ul>
+				<li>Extjs SDK, library folder; if you dont have download 30 days trial version from <a target="_blank" href="https://www.sencha.com/products/extjs/evaluate/"><b>sencha website</b></a></li>
+				<li>Extjs CMD, download from <a target="_blank" href="https://www.sencha.com/products/sencha-cmd/"><b>sencha website</b></a></li>
+			</ul>
+		</p>
+		<p>
+			<b><u>Steps: Open sencha CMD, and follow the steps</u> [By using "sencha generate workspace workspace_name"]</b>
+			<ol>
+				<li>G:\>sencha generate workspace myworkspace</li>
+				<span>Now your workspace directory is created with name myworkspace inside G:\ folder, And you have to create application inside this workspace. Remember that this workspace does not have sencha library folder yet. And we will create that while creating the application.
+				</span><br/><br/>
+				<li>G:\>cd myworkspace</li>
+				<span>Now we will create a app named "lms" inside myworkspace. By executing the below command it will automatically check the SDK directory "ext"; since we don't have ext directory it will automatically create the directory very first time and it will place the extjs library required files. [ message will start like "Workspace does not have framework ext at G:\myworkspace ... copying"] And then it will create app "lms".
+				</span><br/><br/>
+				<li>G:\myworkspace>sencha -sdk c:\ext-6.0.2 generate app lms G:\myworkspace\lms</li>
+				<span>
+				Now you are done with setup of workspace and app. If you wish to see the application execute the following command and open the browser to confirm. [localhost:1841/lms/].
+				</span><br/><br/>
+				<li>G:\myworkspace>sencha web start</li>
+				<span>
+				If you want to and another app inside workspace; you can simple add the following command and it will create the app:
+				</span><br/><br/>
+				<li>G:\myworkspace>sencha -sdk ext generate app qms g:\myworkspace\qms</li>
+			</ol>
+		</p>
+		<p>
+			Now you can start adding applications and begin your work. !!!
+		</p>
+		<p>Date: 15:57 IST; Feb 22, 2017. </p>
+	</body>
+</html>
+
+
+
+
