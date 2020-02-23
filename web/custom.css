@@ -7,29 +7,26 @@ html, body {
     color: black;
     line-height: 1.5;
 }
-@media only screen and (min-width: 768px){
-    body {
-        padding-right: 150px;
-        padding-left: 150px;
-    }
-}
 section {
     display: flex;
 }
 div {
     border: 0px solid red;
     text-align: justify;
+}
+padd-2 {
     padding: 2px;
 }
 .header {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-h3 {
+.title-heading {
     text-decoration: underline;
     margin-bottom: 0px;
 }
-.margin-10 {
+.margin-bt-10 {
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 .main-container {    
@@ -82,8 +79,6 @@ h3 {
     cursor: pointer;
     background-color: #4CAF50!important;
     display: table;
-    margin-top: auto;
-    margin-bottom: auto;
     border-radius: 2px;
     min-width: 160px;
     min-height: 20px;
@@ -108,4 +103,56 @@ h3 {
 .fa-skype {
     color: #009fe5;
     visibility: hidden;
+}
+@media only screen and (min-width: 770px){
+    body {
+        padding-right: 150px;
+        padding-left: 150px;
+    }
+    /*
+    .experience-tab {
+        flex-direction: row !important;
+    }
+    .experience-tab div {
+        flex: 1;
+    }*/
+}
+.experience-tab {
+    display: flex;
+    flex-direction: column;   
+}
+.skills {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid grey;
+    margin: 3px;
+}
+.skills-title {
+    width: 120px;
+    display: flex;
+    background: darkgreen;
+    justify-content: center;
+    color: white;
+}
+.p-bar {
+    flex-grow: 1;
+}
+.p-bar-child {
+    height:100%;
+    background-color: #4caf50;
+}
+.w-90 {
+    width:90%;
+}
+.w-50 {
+    width: 50%;
+}
+.w-60{
+    width: 60%;
+}
+.w-70{
+    width: 70%;
+}
+.w-80{
+    width: 80%;
 }
