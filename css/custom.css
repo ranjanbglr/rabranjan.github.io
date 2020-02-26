@@ -3,7 +3,7 @@ html, body {
     padding: 2px;
     background-color: white;
     font-family: Helvetica Neue, Helvetica;
-    background: #F4F4F4 url('./bg_image.png');
+    background: #F4F4F4 url('../images/bg_image.png');
     color: black;
     line-height: 1.5;
 }
@@ -94,11 +94,21 @@ padd-2 {
     text-align: center;
 }
 .fa {
-    font-size: 25px;
+    font-size: 28px;
     min-width: 30px;
+    margin-top: 5px;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .fa-linkedin-square {
     color: #0077b5;
+}
+.fa-envelope {
+    color: #0077b5;
+    margin-right: 10px;
 }
 .fa-skype {
     color: #009fe5;
@@ -128,14 +138,16 @@ padd-2 {
     margin: 3px;
 }
 .skills-title {
-    width: 120px;
     display: flex;
     background: darkgreen;
     justify-content: center;
     color: white;
+    flex-basis: 120px; 
+    flex-grow: 0;
 }
 .p-bar {
     flex-grow: 1;
+    flex-basis: 120px;
 }
 .p-bar-child {
     height:100%;

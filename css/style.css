@@ -272,3 +272,31 @@ footer *{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+
+.some-page-wrapper {
+	display: flex;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+}
+
+.f-content-center {
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	min-width: 300px;
+}
