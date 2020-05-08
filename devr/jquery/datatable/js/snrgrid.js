@@ -186,7 +186,7 @@ $(document).ready(function() {
     $('#buildKitGrid thead tr').clone(true).appendTo( '#buildKitGrid thead' );
     $('#buildKitGrid thead tr:eq(1) th').each( function (i) {
         var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        $(this).html( '<input type="text" style="width:75px" placeholder="Search '+title+'" />' );
  
         $('input', this).on( 'keyup change', function () {
             if ( table.column(i).search() !== this.value ) {
@@ -240,7 +240,7 @@ $(document).ready(function() {
     $('#backOrderGrid thead tr:eq(1) th').each( function (i) {
         var title = $(this).text();
         if(title!="" && title!=null && title!='1'){
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+            $(this).html( '<input type="text" style="width:75px" placeholder="Search '+title+'" />' );
     
             $('input', this).on( 'keyup change', function () {
                 if ( backOrderGridTable.column(i).search() !== this.value ) {
