@@ -1,0 +1,40 @@
+
+{
+    "responseData": [{
+        "id":"1",
+        "firstName":"Armand",
+        "lastName":"Warren",
+        "zip":"56045",
+        "country":"Taiwan, Province of China"
+    },{
+        "id":"2",
+        "firstName":"Xenos",
+        "lastName":"Salas",
+        "zip":"71090",
+        "country":"Liberia"
+    },{
+        "id":"2",
+        "firstName":"Xenos",
+        "lastName":"Salas",
+        "zip":"71090",
+        "country":"Liberia"
+    },{
+        "id":"3",
+        "firstName":"Virginia",
+        "lastName":"Whitaker",
+        "zip":"62723",
+        "country":"Nicaragua"
+    },{
+        "id":"4",
+        "firstName":"Kato",
+        "lastName":"Patrick",
+        "zip":"97662",
+        "country":"Palau"
+    },{
+        "id":"5",
+        "firstName":"Penelope",
+        "lastName":"Hensley",
+        "zip":"76634",
+        "country":"Greenland"
+    }]
+}

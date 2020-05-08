@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.dataTables1.10.20.min.js"></script>
+        <!-- <script type="text/javascript" src="../js/dataTables.fixedHeader3.1.6.min.js"></script> -->
+        <script type="text/javascript" src="../js/snrgrid.js"></script>
+        <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
+        <script type="text/javascript" src="../js/datetime.js"></script>
+
+        <link rel="stylesheet" href="../css/jquery-ui1.12.1.css">
+        <link rel="stylesheet" href="../css/scroller.jqueryui.min.2.0.1.css">
+        <link rel="stylesheet" href="../css/dataTables.jqueryui.min1.10.20.css">
+        <link rel="stylesheet" href="../css/datatables.min1.10.20.css">
+        <link rel="stylesheet" href="../css/select.dataTables.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <div>
+            <div style="float: left; width: 30%; border-right: 1px solid black;">
+                <table id="backOrderGrid" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Catalog #</th>
+                            <th>Lot #</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="float: left; width: 60%; border-right: 1px solid black;">
+                <table id="buildKitGrid" class="display nowrap" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>Tag ID</th>
+                            <th>Catalog #</th>
+                            <th>Lot #</th>
+                            <th>Expiry date</th>
+                            <th>Owner</th>
+                            <th>Commission</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="float: left; width: 8%;">
+                <div>
+                    <button class="button kit-button">Build Kit</button>
+                </div>
+                <div>
+                    <button class="button kit-button">Next Tote</button>
+                </div>
+                <div>
+                    <button class="button kit-button">Print</button>
+                </div>
+                <div>
+                    <button class="button kit-button">Reset</button>
+                </div>
+                <div>
+                    <button class="button kit-button">Close</button>
+                </div>
+                <div>
+                    <button class="button kit-button">Add Items</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
