@@ -17,7 +17,7 @@ var responseData = [{
 },{
     "tagID":"3034000094003DC001312D35",
     "catalog":"6276-7-316",
-    "lot":"SalasCAXW629H",
+    "lot":"CAXW629H",
     "expiryDate":"2023-01-16",
     "description": "REST MOD CONICAL DISTAL BOWED STEM 16mmX235mm",
     "owner":"NLE",
@@ -121,17 +121,17 @@ var responseData = [{
 }];
 
 var backOrderData = [{
-    "checked": null,
+    "checked": '1',
     "catalog":"6276-7-314",
     "lot":"CAXT11PE"
 },{
-    "checked": null,
+    "checked": '1',
     "catalog":"6276-7-315",
     "lot":"CAXT21JD"
 },{
-    "checked": null,
+    "checked": '1',
     "catalog":"6276-7-316",
-    "lot":"SalasCAXW629H"
+    "lot":"CAXW629H"
 },{
     "checked": null,
     "catalog":"6276-7-317",
@@ -185,17 +185,22 @@ $(document).ready(function() {
     /* Setup - add a text input to each footer cell */
     $('#buildKitGrid thead tr').clone(true).appendTo( '#buildKitGrid thead' );
     $('#buildKitGrid thead tr:eq(1) th').each( function (i) {
-        var title = $(this).text();
-        $(this).html( '<input type="text" style="width:75px" placeholder="Search '+title+'" />' );
- 
-        $('input', this).on( 'keyup change', function () {
-            if ( table.column(i).search() !== this.value ) {
-                table
-                    .column(i)
-                    .search( this.value )
-                    .draw();
-            }
-        } );
+        let title = $(this).text();        
+        let width = '70%';
+        if(title==='Commission'){
+            $(this).html( '<label></label>');
+        } else {
+            $(this).html( '<input class="w3-input w3-border w3-round w3-tiny" style="width:'+ width +'" type="text" placeholder="Search..." />' );
+    
+            $('input', this).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                    table
+                        .column(i)
+                        .search( this.value )
+                        .draw();
+                }
+            });
+        }
     });
     /* End Setup - add a text input to each footer cell */
 
@@ -205,42 +210,63 @@ $(document).ready(function() {
         //     dataSrc: "responseData"
         // },
         data: responseData,
-        // columnDefs: [
-        //     { "width": "26%", "targets": 0 },
-        //     { "width": "20%", "targets": 1 },
-        //     { "width": "20%", "targets": 2 },
-        //     { "width": "13%", "targets": 3 },
-        //     { "width": "8%", "targets": 4 },
-        //     { "width": "13%", "targets": 5 }
-        // ],
         columns: [
-            { data: 'tagID' },
-            { data: 'catalog' },
-            { data: 'lot' },
-            { data: 'expiryDate' },
-            { data: 'owner' },
-            { data: 'commission' }
+            { data: 'tagID'},
+            { data: 'catalog'},
+            { data: 'lot'},
+            { data: 'expiryDate'},
+            { data: 'owner'},
+            { data: 'commission',
+                "render": function ( data, type, row ) {
+                    if (row.catalog==='6276-7-314' || row.catalog==='6276-7-315' || row.catalog==='6276-7-316') {
+                        return '<div style="cursor:pointer; font-size:20px;"><i class="fa fa-qrcode" aria-hidden="true"></i></div>';
+                    } else {
+                        return data;
+                    }
+                }
+            }
         ],
         deferRender: true,
         scrollY: 300,
+        scrollX: true,
         scrollCollapse: true,
         scroller: true,
 
         orderCellsTop: true,
-        //fixedHeader: true,
         bInfo: false,
         bPaginate: false,
         dom: 'lrtp',
-        bSort: true
+        bSort: false,
+        createdRow: function(row, data, dataIndex) {
+            if (data.catalog==='6276-7-314' || data.catalog==='6276-7-315' || data.catalog==='6276-7-316' ) {
+                $(row).addClass('orange');
+            }
+        }
     });
-
-    table.columns.adjust().draw();
+    table.on('click', 'tbody td', function() {
+        //get textContent of the TD
+        // console.log('TD cell textContent : ', this.textContent)
+        //get the value of the TD using the API 
+        // console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
+        // console.log(table.cell(this).data());
+        if(this.cellIndex==5) {
+            var row_clicked     = $(this).closest('tr');
+            var row_object      = table.row(row_clicked).data();
+            // debugger
+            // if($('#buildKitGrid tr td').eq($(this).index()).html().indexOf('fa-qrcode')!=-1){
+                alert('Catelog: ' + row_object.catalog + ' Lot: ' + row_object.lot);
+            // }
+            //commision present or not 
+            //$('#buildKitGrid thead tr th').eq($(this).index()).html().indexOf('Commission')
+        }
+    });
     /* Setup - add a text input to each footer cell */
     $('#backOrderGrid thead tr').clone(true).appendTo( '#backOrderGrid thead' );
     $('#backOrderGrid thead tr:eq(1) th').each( function (i) {
         var title = $(this).text();
         if(title!="" && title!=null && title!='1'){
-            $(this).html( '<input type="text" style="width:75px" placeholder="Search '+title+'" />' );
+            $(this).html( '<input class="w3-input w3-border w3-round w3-tiny" style="width:62px" type="text" placeholder="Search..." />' );
+            // $(this).html( '<input style="width:75px" type="text" placeholder="Search '+title+'" />' );
     
             $('input', this).on( 'keyup change', function () {
                 if ( backOrderGridTable.column(i).search() !== this.value ) {
@@ -255,22 +281,22 @@ $(document).ready(function() {
     /* End Setup - add a text input to each footer cell */
     var backOrderGridTable = $('#backOrderGrid').DataTable({
         'initComplete': function(settings){
-            // var api = this.api();
-            // api.cells(
-            //    api.rows(function(idx, data, node){
-            //       return (data[0] === '1') ? true : false;
-            //    }).indexes(),
-            //    0
-            // ).checkboxes.select();
+            var api = this.api();
+            api.cells(
+               api.rows(function(idx, data, node){
+                  return (data.checked === '1') ? true : false;
+               }).indexes(),
+               0
+            ).checkboxes.select();
         },
         columnDefs: [ {
             orderable: false,
-            className: 'select-checkbox',
-            // 'checkboxes': {
-            //     'selectRow': true
-            // },
+            // className: 'select-checkbox',
+            checkboxes: {
+                'selectRow': true
+            },
             targets:   0
-        } ],
+        }],
         select: {
             //style:    'os',
             style: 'multi',
@@ -279,12 +305,13 @@ $(document).ready(function() {
         order: [[ 1, 'asc' ]],
         data: backOrderData,
         columns: [
-            { data: 'checked'},
+            { data: 'checked', width: '10px'},
             { data: 'catalog' },
-            { data: 'lot' }
+            { data: 'lot'}
         ],
         deferRender: true,
         scrollY: 300,
+        scrollX: true,
         scrollCollapse: true,
         scroller: true,
 
@@ -293,6 +320,6 @@ $(document).ready(function() {
         bInfo: false,
         bPaginate: false,
         dom: 'lrtp',
-        bSort: true
+        bSort: false
     })
 });

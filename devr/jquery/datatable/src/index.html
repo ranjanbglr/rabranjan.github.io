@@ -1,24 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>        
-        <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="../js/jquery.dataTables1.10.20.min.js"></script>
-        <!-- <script type="text/javascript" src="../js/dataTables.fixedHeader3.1.6.min.js"></script> -->
-        <script type="text/javascript" src="../js/snrgrid.js"></script>
-        <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
-        <script type="text/javascript" src="../js/datetime.js"></script>
 
-        <link rel="stylesheet" href="../css/jquery-ui1.12.1.css">
-        <link rel="stylesheet" href="../css/scroller.jqueryui.min.2.0.1.css">
-        <link rel="stylesheet" href="../css/dataTables.jqueryui.min1.10.20.css">
-        <link rel="stylesheet" href="../css/datatables.min1.10.20.css">
-        <link rel="stylesheet" href="../css/select.dataTables.min.css">
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
-    <body>
-        <div>
-            <div style="float: left; width: 30%; border-right: 1px solid black;">
-                <table id="backOrderGrid" class="display nowrap" style="width:100%">
+<head>
+    <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables1.10.20.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.checkboxes.min.js"></script>
+    <script type="text/javascript" src="../js/datetime.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../js/snrgrid.js"></script>
+
+    <link rel="stylesheet" href="../css/jquery-ui1.12.1.css">
+    <link rel="stylesheet" href="../css/scroller.jqueryui.min.2.0.1.css">
+    <link rel="stylesheet" href="../css/dataTables.jqueryui.min1.10.20.css">
+    <link rel="stylesheet" href="../css/datatables.min1.10.20.css">
+    <link rel="stylesheet" href="../css/select.dataTables.min.css">
+    <link rel="stylesheet" href="../css/dataTables.checkboxes.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/jquery.modal.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="parent-container">
+        <div class="kit-header">
+            <div>
+                <div class="kit-info">
+                    <div>Kit Details:</div>
+                    <div>BOM LOCKED</div>
+                </div>
+                <div class="kit-info">
+                    <div>Ownership:</div>
+                    <div>NLE</div>
+                </div>
+                <div class="kit-info">
+                    <div>Tote:</div>
+                    <div>1 of 1</div>
+                </div>
+                <div class="kit-info">
+                </div>
+            </div>
+            <div>
+                <div class="kit-info">
+                    <div>Tag ID:</div>
+                    <div>3034000094000040013147B3</div>
+                </div>
+                <div class="kit-info">
+                    <div>Kit #:</div>
+                    <div>RMC-B235-N</div>
+                </div>
+                <div class="kit-info">
+                    <div>Total Items:</div>
+                    <div>8</div>
+                </div>
+                <div class="kit-info">
+                    <div>Tote(s) remaining:</div>
+                    <div>0</div>
+                </div>
+            </div>
+            <div>
+                <div class="kit-info">
+                    <div>
+                        <input type="checkbox" id="availableItems" name="availableItems" value="availableItems"
+                            disabled>
+                        <label for="availableItems"> Available Item(s)</label>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="kit-info">
+                    <div>
+                        <input type="checkbox" id="backOrderItems" name="backOrderItems" value="backOrderItems" checked
+                            disabled>
+                        <label for="backOrderItems"> Back Order Item(s)</label>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="kit-info">
+                </div>
+                <div class="kit-info">
+                </div>
+            </div>
+        </div>
+        <div class="container kit-center">
+            <div class="back-order-grid column col1">
+                <table id="backOrderGrid" class="display nowrap">
                     <thead>
                         <tr>
                             <th></th>
@@ -28,8 +95,8 @@
                     </thead>
                 </table>
             </div>
-            <div style="float: left; width: 60%; border-right: 1px solid black;">
-                <table id="buildKitGrid" class="display nowrap" style="width:100%;">
+            <div class="build-kit-grid column col2">
+                <table id="buildKitGrid" class="display nowrap">
                     <thead>
                         <tr>
                             <th>Tag ID</th>
@@ -42,26 +109,56 @@
                     </thead>
                 </table>
             </div>
-            <div style="float: left; width: 8%;">
+            <div class="menu-buttons column col3">
                 <div>
-                    <button class="button kit-button">Build Kit</button>
+                    <button type="button" class="button kit-button"><i class="fa fa-check"></i>Build Kit</button>
                 </div>
                 <div>
-                    <button class="button kit-button">Next Tote</button>
+                    <button type="button" class="button kit-button" disabled><i class="fa fa-arrow-right"></i>Next
+                        Tote</button>
                 </div>
                 <div>
-                    <button class="button kit-button">Print</button>
+                    <button type="button" class="button kit-button"><i class="fa fa-print"></i>Print</button>
                 </div>
                 <div>
-                    <button class="button kit-button">Reset</button>
+                    <button type="button" class="button kit-button"><i class="fa fa-refresh"></i>Reset</button>
                 </div>
                 <div>
-                    <button class="button kit-button">Close</button>
+                    <button type="button" class="button kit-button"><i class="fa fa-close"></i>Close</button>
                 </div>
                 <div>
-                    <button class="button kit-button">Add Items</button>
+                    <button type="button" class="button kit-button"><i class="fa fa-plus"></i>Add Items</button>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="kit-footer">
+            <div class="kit-footer-legend">
+                <div>
+                    <span><i class="fa fa-square-o footeri red"></i>Near Expiry</span>
+                </div>
+                <div>
+                    <span><i class="fa fa-square-o footeri lightgreen"></i>Item(s) in</span>
+                </div>
+                <div>
+                    <span><i class="fa fa-square-o footeri orange"></i>Missing</span>
+                </div>
+                <div>
+                    <span><i class="fa fa-square-o footeri yellow"></i>Extra</span>
+                </div>
+                <div>
+                    <span><i class="fa fa-square-o footeri green"></i>Matching</span>
+                </div>
+                <div class="footer-flex2">
+                    <span><i class="fa fa-square-o footeri blue"></i>Lot discrepency with build of materials</span>
+                </div>
+                <div>
+                    <span><i class="fa fa-square-o footeri pink"></i>Pending Returned Item</span>
+                </div>
+            </div>
+            <div id="userMessage">
+                <span>9 tags read - searching for additional tags...</span>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
