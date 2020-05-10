@@ -156,6 +156,14 @@ table.dataTable thead tr:first-child {
 .red {
     background: #f32121;
 }
+.expiry {
+    border: 1px solid #f32121;
+    color: #f32121;
+    padding: 3px;
+}
+.other-items {
+    text-decoration: line-through;
+}
 .footeri .fa {
     float: left;
     font-size: 15px;
