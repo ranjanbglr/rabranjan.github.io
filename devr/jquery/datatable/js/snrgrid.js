@@ -1,6 +1,6 @@
 let responseData = [{
     "tagID":"303400009400404001312D22",
-    "catalog":"6276-7-314",
+    "catalog":"5537-G-325",
     "lot":"CAXT11PE",
     "expiryDate":"2020-09-21",
     "description": "REST MOD CONICAL DISTAL BOWED STEM 14mmX235mm",
@@ -9,7 +9,7 @@ let responseData = [{
     "status": 1
 },{
     "tagID":"303400009400408001312D24",
-    "catalog":"6276-7-315",
+    "catalog":"5537-G-616",
     "lot":"CAXT21JD",
     "expiryDate":"2020-09-05",
     "description": "REST MOD CONICAL DISTAL BOWED STEM 15mmX235mm",
@@ -18,7 +18,7 @@ let responseData = [{
     "status": 2
 },{
     "tagID":"3034000094003DC001312D35",
-    "catalog":"6276-7-316",
+    "catalog":"5537-G-528",
     "lot":"CAXW629H",
     "expiryDate":"2023-01-16",
     "description": "REST MOD CONICAL DISTAL BOWED STEM 16mmX235mm",
@@ -137,15 +137,15 @@ let responseData = [{
 
 let backOrderData = [{
     "checked": '1',
-    "catalog":"6276-7-314",
+    "catalog":"5537-G-325",
     "lot":"CAXT11PE"
 },{
     "checked": '1',
-    "catalog":"6276-7-315",
+    "catalog":"5537-G-616",
     "lot":"CAXT21JD"
 },{
     "checked": '1',
-    "catalog":"6276-7-316",
+    "catalog":"5537-G-528",
     "lot":"CAXW629H"
 },{
     "checked": null,
@@ -234,7 +234,7 @@ $(document).ready(function() {
             { data: 'commission',
                 orderable: false,
                 "render": function ( data, type, row ) {
-                    if (row.catalog==='6276-7-314' || row.catalog==='6276-7-315' || row.catalog==='6276-7-316') {
+                    if (row.catalog==='5537-G-325' || row.catalog==='5537-G-616' || row.catalog==='5537-G-528') {
                         return '<div style="cursor:pointer; font-size:20px;"><i class="fa fa-qrcode" aria-hidden="true"></i></div>';
                     } else {
                         return data;
@@ -260,8 +260,34 @@ $(document).ready(function() {
         dom: 'lrtp',
         bSort: true,
         createdRow: function(row, data, dataIndex) {
-            if (data.catalog==='6276-7-314' || data.catalog==='6276-7-315' || data.catalog==='6276-7-316' ) {
+            if (data.catalog==='5537-G-325' || data.catalog==='5537-G-616' || data.catalog==='5537-G-528' ) {
                 $(row).addClass('orange');
+            }
+        }
+    });
+    $("#dialog").dialog({
+        autoOpen: false,
+        position: 'center',
+        title: 'Sterile Item Commissioning',
+        draggable: false,
+        width: 1050,
+        height: 600,
+        resizable: false,
+        modal: true,
+        close: function() {
+            let printMessageFromDialog = localStorage.getItem('printTagMessageFromItemCommission');
+            if(printMessageFromDialog!=""){
+                let itemCommissionMessageDiv = $('#itemCommissionMessage');
+                if(printMessageFromDialog==='Print') {
+                    itemCommissionMessageDiv.html('Item tag printed successfully');
+                } else {
+                    itemCommissionMessageDiv.html('Item tag re-printed successfully');
+                }
+                itemCommissionMessageDiv.show().css('visibility','visible');
+                setTimeout(function(){
+                    itemCommissionMessageDiv.hide().css('visibility','hidden');
+                    itemCommissionMessageDiv.html('');
+                },4000);
             }
         }
     });
@@ -272,14 +298,16 @@ $(document).ready(function() {
         // console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
         // console.log(table.cell(this).data());
         if(this.cellIndex==5) {
-            let row_clicked     = $(this).closest('tr');
-            let row_object      = table.row(row_clicked).data();
-            // debugger
-            // if($('#buildKitGrid tr td').eq($(this).index()).html().indexOf('fa-qrcode')!=-1){
-                alert('Catelog: ' + row_object.catalog + ' Lot: ' + row_object.lot);
-            // }
             //commision present or not 
             //$('#buildKitGrid thead tr th').eq($(this).index()).html().indexOf('Commission')
+            let row_clicked     = $(this).closest('tr');
+            let row_object      = table.row(row_clicked).data();
+            // alert('Catelog: ' + row_object.catalog + ' Lot: ' + row_object.lot);
+            if (row_object.catalog==='5537-G-325' || row_object.catalog==='5537-G-528' || row_object.catalog==='5537-G-616') {
+                $("#dialog").load('item-commission.html', function(){
+                    $("#dialog").data('selectedDataObj', row_object).dialog("open");
+                });
+            }
         }
     });
     /* Setup - add a text input to each footer cell */
@@ -350,4 +378,8 @@ $(document).ready(function() {
         table.order( [ 6, 'asc' ] ).draw();
         availableItemtable.order( [ 1, 'asc' ] ).draw();
     });
+    setTimeout(function(){
+        $('#userMessage').hide().css('visibility','hidden');
+        $('#userMessage').html('');
+    },4000);
 });

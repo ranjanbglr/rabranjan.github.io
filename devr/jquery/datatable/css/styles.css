@@ -172,3 +172,23 @@ table.dataTable thead tr:first-child {
     color: red;
     margin-top: 10px;
 }
+.userMessage {
+    min-height: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+    animation: blinker 1s linear infinite;
+}
+.itemCommissionMessage {
+    min-height: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: blue;
+    padding-top: 5px;
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

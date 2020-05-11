@@ -1,0 +1,68 @@
+.commission-container {
+    height: 100% !important;
+}
+.commission-center-container {
+    display: flex;
+}
+.commission-header {
+    flex-grow: 0;
+    flex-basis: 50px;
+    padding: 5px;
+    margin: 1px;
+    display: flex;
+}
+.commission-header div {
+    margin-top: 2px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    align-items: center;
+    display: flex;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.commission-center {
+    flex-grow: 1;
+    padding: 2px;
+}
+.commission-center div {
+    margin: 1px;
+}
+.grids-section, .button-section {
+    min-height: 400px;
+}
+.grids-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grids-section div {
+    margin: 2px;
+    flex: 1;
+}
+.commission-footer {
+    flex-grow: 0;
+    flex-basis: 50px;
+    padding: 5px;
+    margin: 1px;
+    font-weight: bold;
+}
+.center-col1 {
+    flex-grow: 1;
+    flex-basis: 400px;
+}
+.center-col2 {
+    flex-grow: 0;
+    flex-basis: 150px;
+    align-items: center;
+}
+.dt-head-center {
+    text-align: center;
+}
+thead, th {
+    text-align: center;
+}
+.title-label {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}

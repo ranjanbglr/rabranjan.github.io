@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../js/item-commission.js"></script>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/item-commission.css">
+    </head>
+    <body>
+        <div class="parent-container commission-container">
+            <div class="commission-header section-border">
+                <div>
+                    <div class="mr-5">Lot #:</div>
+                    <div><input class="w3-input w3-border w3-round w3-tiny" type="text"/></div>
+                </div>
+                <div>
+                    <input class="mr-5" type="checkbox" id="isAutoBarCode" name="isAutoBarCode" value="isAutoBarCode" checked>
+                    <label for="isAutoBarCode">Is Auto BarCode</label>
+                </div>
+            </div>
+            <div class="commission-center-container commission-center">
+                <div class="grids-section center-col1 section-border">
+                    <div class="mr-1">
+                        <table id="commissionItemGrid" class="display nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Catalog #</th>
+                                    <th>Lot Number</th>
+                                    <th>Description</th>
+                                    <th>SGTIN</th>
+                                    <th>Expiry Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="title-label">Previously Commissioned Items</div>
+                        <div>
+                            <table id="prevCommissionItemGrid" class="display nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Seq #</th>
+                                        <th>Catalog #</th>
+                                        <th>Lot Number</th>
+                                        <th>Description</th>
+                                        <th>SGTIN</th>
+                                        <th>Print</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-buttons button-section center-col2 section-border">
+                    <div>
+                        <button id="itemCommissionPrint" type="button" class="button kit-button"><i class="fa fa-print"></i><span>Print</span></button>
+                    </div>
+                    <div>
+                        <button type="button" class="button kit-button"><i
+                                class="fa fa-refresh"></i>Reset</button>
+                    </div>
+                    <div>
+                        <button type="button" class="button kit-button"><i class="fa fa-close"></i>Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="commission-footer section-border">
+                <div class="kit-footer-legend">
+                    <div>
+                        <span class="">Scan Lot #</span>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 
