@@ -192,3 +192,12 @@ table.dataTable thead tr:first-child {
         opacity: 0;
     }
 }
+.text-wrap {
+    white-space: normal;
+}
+.width-150 {
+    width: 150px;
+}
+.width-80 {
+    width: 80px;
+}

@@ -225,10 +225,15 @@ $(document).ready(function() {
         //     dataSrc: "responseData"
         // },
         data: responseData,
+        // autoWidth: false,  // in case width not set
         columns: [
             { data: 'tagID'},
             { data: 'catalog'},
-            { data: 'lot'},
+            { data: 'lot', width: '80px',
+                render: function(data, type, full, meta) {
+                    return "<div class=text-wrap width-80>" + data + "</div>";
+                }
+            },
             { data: 'expiryDate'},
             { data: 'owner'},
             { data: 'commission',
